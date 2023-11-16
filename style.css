@@ -1,0 +1,11 @@
+:root {
+  --primaryColor: #ff6565;
+}
+
+.bg-indigo-600 {
+  background-color: var(--primaryColor) !important;
+}
+.text-indigo-600,
+.text-gray-900 {
+  color: var(--primaryColor) !important;
+}
