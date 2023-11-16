@@ -7,13 +7,14 @@ var signUpPassword = document.getElementById("signUpPassword");
 function singUp() {
   // Getting data from local storage
   var storData = JSON.parse(localStorage.getItem("storeDetails")) || [];
-  // Local stroage object
+  // Local storage object
   var userDetails = {
     name: signUpUserName.value,
     email: signUpEmail.value,
     passowrd: signUpPassword.value,
   };
-  //Pusing object to local storeage
+  //Pusing object to local storage
   storData.push(userDetails);
   localStorage.setItem("storeDetails", JSON.stringify(storData));
 }
+// Main page timer

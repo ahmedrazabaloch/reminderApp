@@ -1,13 +1,14 @@
-:root {
-  --primaryColor: #ff6565;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
 .bg-indigo-600 {
-  background-color: var(--primaryColor) !important;
+  background-color: #ff6565 !important;
 }
 .text-indigo-600,
 .text-gray-900 {
-  color: var(--primaryColor) !important;
+  color: #ff6565 !important;
 }
 .space-y-6 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
@@ -22,4 +23,32 @@
   outline: #ff6565;
   color: #000 !important;
   padding-left: 10px !important;
+}
+
+/* Main page */
+
+.container {
+  width: 100%;
+}
+.box {
+  width: 60%;
+  padding: 20px 50px;
+  background-color: #f6f6f6;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+.box header {
+  background-color: #ff6565;
+  padding: 10px;
+  height: 150px;
+}
+.box main {
+  padding: 10px;
+  background-color: #fff;
+  height: 400px;
+}
+p#timer {
+  text-align: center;
+  font-size: 24px;
+  margin-top: 3%;
 }
