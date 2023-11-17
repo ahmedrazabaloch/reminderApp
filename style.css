@@ -27,30 +27,82 @@
 
 /* Main page */
 
-.container {
-  width: 100%;
-}
-.box {
-  width: 60%;
-  padding: 20px 50px;
+.containers {
+  width: 1350px;
   background-color: #f6f6f6;
   margin: 0 auto;
   min-height: 100vh;
 }
+.box {
+  padding: 20px 50px;
+}
+
+/* Header Section */
+.box header,
+main {
+  padding: 10px;
+}
 .box header {
   background-color: #ff6565;
-  padding: 10px;
-  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+  flex-wrap: wrap;
+  width: 100%;
+  border-radius: 5px;
 }
-.box main {
-  padding-top: 20px;
-  background-color: #fff;
-  height: 400px;
-}
-p#date,
-p#time {
+div#clock,
+div#newTask,
+div#namazR {
   color: #fff;
   text-align: center;
-  font-size: 2.5em;
+  font-size: 2em;
   font-weight: 600;
+  width: 30%;
+  user-select: none;
+  transition: all 0.3s linear;
+}
+div#newTask:hover,
+div#namazR:hover {
+  background-color: #f6f6f6;
+  color: #ff6565;
+  border-radius: 5px;
+}
+#newTask p,
+#namazR p {
+  border: 1px solid #f6f6f6;
+  padding: 20px 0;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.fa-solid,
+.fas {
+  font-weight: 900;
+  margin: 0 15px;
+}
+/* Main Section User Input */
+.box main {
+  background-color: #fff;
+  color: #ff6565;
+}
+#userinput {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 600;
+  user-select: none;
+  transition: all 0.3s linear;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#inputField {
+  display: flex;
+  width: 70%;
+  justify-content: space-around;
+  align-items: center;
+}
+#btn {
+  width: 30%;
 }
