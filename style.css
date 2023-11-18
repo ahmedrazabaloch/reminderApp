@@ -88,9 +88,8 @@ div#namazR:hover {
 }
 #userinput {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   text-align: center;
-  font-size: 1.5em;
   font-weight: 600;
   user-select: none;
   transition: all 0.3s linear;
@@ -104,5 +103,16 @@ div#namazR:hover {
   align-items: center;
 }
 #btn {
+  font-size: 1.5em;
+  border: 1px solid;
+  padding: 10px;
+  border-radius: 5px;
+}
+.userfield {
+  border: 1px solid;
   width: 30%;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
 }
