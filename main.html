@@ -15,6 +15,7 @@
   <body>
     <div class="containers">
       <div class="box">
+        <!-- Header Start -->
         <header>
           <div id="newTask">
             <p>New Task <i class="fa-solid fa-plus"></i></p>
@@ -27,21 +28,53 @@
             <p><i class="fa-solid fa-mosque"></i>Namaz Reminder</p>
           </div>
         </header>
+        <!-- Main Section Start -->
         <main>
           <div id="userinput">
             <div class="userfield">
-              <label for="userDis">Add Discerption</label>
-              <input type="text" id="userDis" placeholder="Discerption" />
+              <label for="userTitle">Title:</label>
+              <input type="text" id="userTitle" placeholder="Add Title..." />
+            </div>
+            <div class="userfield">
+              <label for="userDis">Discerption:</label>
+              <input
+                type="text"
+                id="userDis"
+                placeholder="Add Discerption..."
+              />
             </div>
             <div class="userfield">
               <label for="setTime">Set Time</label>
-              <input type="datetime-local" id="setTime" />
+              <input type="time" id="setTime" />
+            </div>
+            <div class="userfield">
+              <label for="setDates">Set Time</label>
+              <input type="date" id="setDate" />
             </div>
             <div id="userinput">
-              <button id="btn">Save Data</button>
+              <button id="btn" onclick="saveData()">Add Data</button>
             </div>
           </div>
         </main>
+        <!-- User Value Section Start -->
+        <section id="section">
+          <div class="sectionBox">
+            <div class="secDisply">
+              <div class="alarm">
+                <p>Time: <span id="alramSet">12:00</span></p>
+                <span>||</span>
+                <p>Date: <span id="dateSet">EveryDay</span></p>
+              </div>
+              <div class="reminderValue">
+                <p id="titles">Advance JS Revision</p>
+                <p id="discerption">
+                  Data Structures, Deep Copy and Shallow Copy, Rest Operator, &
+                  Spread Operator
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>

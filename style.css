@@ -39,7 +39,8 @@
 
 /* Header Section */
 .box header,
-main {
+main,
+section {
   padding: 10px;
 }
 .box header {
@@ -50,7 +51,6 @@ main {
   gap: 5%;
   flex-wrap: wrap;
   width: 100%;
-  border-radius: 5px;
 }
 div#clock,
 div#newTask,
@@ -74,7 +74,6 @@ div#namazR:hover {
   border: 1px solid #f6f6f6;
   padding: 20px 0;
   cursor: pointer;
-  border-radius: 5px;
 }
 .fa-solid,
 .fas {
@@ -103,16 +102,83 @@ div#namazR:hover {
   align-items: center;
 }
 #btn {
-  font-size: 1.5em;
+  font-size: 1em;
   border: 1px solid;
-  padding: 10px;
-  border-radius: 5px;
+  padding: 10.8px;
+  transition: all 0.3s linear;
+}
+#btn:hover {
+  background-color: #ff6565;
+  color: #fff;
 }
 .userfield {
-  border: 1px solid;
-  width: 30%;
-  padding: 10px;
+  /* padding: 10px; */
   border-radius: 5px;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  /* gap: 10px; */
+}
+.userfield input {
+  padding: 10px;
+  font-size: 17px;
+  outline: 1px solid #ff6565;
+}
+.userfield label {
+  padding: 10.8px 10px;
+  /* height: 49px; */
+  text-align: center;
+  border: 1px solid #ff6565;
+  cursor: pointer;
+  transition: all 0.3s linear;
+  background-color: #ff6565;
+  color: white;
+}
+.userfield input::placeholder {
+  color: #ff9d98;
+}
+.userfield input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
+#setTime,
+#setDate {
+  padding: 9px;
+}
+/* <!-- User Value Section Start --> */
+#section {
+  background-color: #ff6565;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5%;
+}
+.secDisply {
+  color: #fff;
+  font-size: 1.5em;
+}
+.sectionBox {
+  width: 30%;
+  border: 1px solid #fff;
+  overflow: hidden;
+  max-height: 300px;
+}
+.alarm {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  color: #fff;
+  background-color: #ff6565;
+}
+p#titles {
+  font-size: 32px;
+  text-align: center;
+  font-weight: 500;
+  padding: 10px;
+  color: #ff6565;
+  background-color: #fff;
+}
+p#discerption {
+  text-align: justify;
+  padding: 10px;
+  color: #fff;
+  background-color: #ff6565;
 }
