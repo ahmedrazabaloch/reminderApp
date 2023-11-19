@@ -298,3 +298,12 @@ input:focus + .slider {
 input:checked + .slider:before {
   transform: translateX(1.9em);
 }
+/* SweetAlert  */
+div:where(.swal2-container) div:where(.swal2-popup) {
+  color: #ff6565 !important;
+  width: unset !important;
+}
+
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+  background-color: #ff6565 !important;
+}

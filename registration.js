@@ -9,13 +9,60 @@ function signup() {
   var signUpEmail = document.getElementById("signUpEmail").value;
   var signUpPassword = document.getElementById("signUpPassword").value;
   if (signUpUserName.trim() === "") {
-    alert("Name can't b empty");
+    Swal.fire({
+      title: "Name field can't be empty",
+      showClass: {
+        popup: `
+          animate__animated
+          animate__fadeInUp
+          animate__faster
+        `,
+      },
+      hideClass: {
+        popup: `
+          animate__animated
+          animate__fadeOutDown
+          animate__faster
+        `,
+      },
+    });
   } else if (!emailRegex.test(signUpEmail)) {
-    alert("please enter a valid email address");
+    Swal.fire({
+      title: "Please enter a valid email address",
+      showClass: {
+        popup: `
+          animate__animated
+          animate__fadeInUp
+          animate__faster
+        `,
+      },
+      hideClass: {
+        popup: `
+          animate__animated
+          animate__fadeOutDown
+          animate__faster
+        `,
+      },
+    });
   } else if (!passwordRegex.test(signUpPassword)) {
-    alert(
-      "Password must be 8 character at least one small one capital alpha one Number "
-    );
+    Swal.fire({
+      title:
+        "Password must be at least 8 characters long,<br/>with at least 1 lowercase letter,<br/>1 uppercase letter, and 1 number.",
+      showClass: {
+        popup: `
+          animate__animated
+          animate__fadeInUp
+          animate__faster
+        `,
+      },
+      hideClass: {
+        popup: `
+          animate__animated
+          animate__fadeOutDown
+          animate__faster
+        `,
+      },
+    });
   } else {
     // Getting data from local storage
     var storData = JSON.parse(localStorage.getItem("storeDetails")) || [];
@@ -51,12 +98,60 @@ function login() {
     }
   }
   if (!details) {
-    alert("Email id not registered");
+    Swal.fire({
+      title: "Email id not registered",
+      showClass: {
+        popup: `
+          animate__animated
+          animate__fadeInUp
+          animate__faster
+        `,
+      },
+      hideClass: {
+        popup: `
+          animate__animated
+          animate__fadeOutDown
+          animate__faster
+        `,
+      },
+    });
   } else {
     if (loginEmail !== details.email) {
-      alert("Please enter a valid email");
+      Swal.fire({
+        title: "Please enter a valid email",
+        showClass: {
+          popup: `
+            animate__animated
+            animate__fadeInUp
+            animate__faster
+          `,
+        },
+        hideClass: {
+          popup: `
+            animate__animated
+            animate__fadeOutDown
+            animate__faster
+          `,
+        },
+      });
     } else if (loginPass !== details.password) {
-      alert("Wrong Password");
+      Swal.fire({
+        title: "Wrong Password",
+        showClass: {
+          popup: `
+            animate__animated
+            animate__fadeInUp
+            animate__faster
+          `,
+        },
+        hideClass: {
+          popup: `
+            animate__animated
+            animate__fadeOutDown
+            animate__faster
+          `,
+        },
+      });
     } else {
       const Toast = Swal.mixin({
         toast: true,
