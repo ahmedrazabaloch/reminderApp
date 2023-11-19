@@ -2,6 +2,9 @@
 var namaz = document.querySelector(".namaz");
 var hideSection = document.querySelector(".hidden");
 var userSelect = document.querySelector(".hide");
+setTimeout(() => {
+  namaz.style.display = "block";
+}, 1500);
 function newTask() {
   namaz.style.display = "none";
   hideSection.style.display = "block";
@@ -87,10 +90,16 @@ function saveData() {
   `;
       userTitles.value = "";
       userDiscerption.value = "";
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Alarm Set",
+        showConfirmButton: false,
+        timer: 1500,
+      });
     }
   }
-  console.log("input time format==>", formattedTime);
-
+  // Matching Time the show alert
   let clearInter = setInterval(() => {
     let sliceTime;
     let timeClock = [moment().format("LTS")];
@@ -99,7 +108,23 @@ function saveData() {
       sliceTime = timeClock[i];
     }
     if (formattedTime.slice(0, 5) == sliceTime.slice(0, 5)) {
-      alert("working");
+      Swal.fire({
+        title: `Reminder`,
+        showClass: {
+          popup: `
+              animate__animated
+              animate__fadeInUp
+              animate__faster
+            `,
+        },
+        hideClass: {
+          popup: `
+              animate__animated
+              animate__fadeOutDown
+              animate__faster
+            `,
+        },
+      });
       clearInterval(clearInter);
     }
   }, 1000);

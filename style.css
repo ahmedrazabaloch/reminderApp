@@ -112,7 +112,8 @@ div#namazR:hover,
   background-color: #fff;
   color: #ff6565;
 }
-.hide {
+.hide,
+.namaz {
   display: none;
 }
 #userinput {
