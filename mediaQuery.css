@@ -1,0 +1,51 @@
+@media only screen and (max-width: 425px) {
+  .box {
+    padding: unset;
+  }
+  .box header {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .namaz {
+    width: unset;
+  }
+  .namazHeading {
+    font-size: 1.5em;
+    padding: 10px;
+  }
+  div#clock,
+  div#newTask,
+  div#namazR {
+    font-size: 1;
+    width: 100%;
+  }
+  .nestedDiv {
+    align-items: center;
+  }
+  #userinput {
+    gap: 10px;
+  }
+  .userfield,
+  .userfield input,
+  .containers,
+  #userinput,
+  .sectionBox,
+  #btn {
+    width: 100%;
+  }
+  .userfield label {
+    width: 40%;
+  }
+  #section {
+    flex-direction: column-reverse;
+  }
+  .alarm {
+    font-size: 0.9;
+  }
+  p#titles {
+    font-size: 1.2em;
+  }
+  .sectionBox {
+    height: auto;
+  }
+}

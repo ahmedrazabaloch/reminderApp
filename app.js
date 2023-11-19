@@ -66,10 +66,42 @@ let flag = false;
 function saveData() {
   // Validation
   if (userTitles.value.trim() === "") {
-    alert("Title Can't be empty");
+    Swal.fire({
+      title: "Title Can't be empty",
+      showClass: {
+        popup: `
+          animate__animated
+          animate__fadeInUp
+          animate__faster
+        `,
+      },
+      hideClass: {
+        popup: `
+          animate__animated
+          animate__fadeOutDown
+          animate__faster
+        `,
+      },
+    });
   } else {
     if (userDiscerption.value.trim() === "") {
-      alert("Discerption Can't be empty");
+      Swal.fire({
+        title: "Discerption Can't be empty",
+        showClass: {
+          popup: `
+            animate__animated
+            animate__fadeInUp
+            animate__faster
+          `,
+        },
+        hideClass: {
+          popup: `
+            animate__animated
+            animate__fadeOutDown
+            animate__faster
+          `,
+        },
+      });
     } else {
       formattedTime = moment(inputTime.value, "HH:mm").format("h:mm A");
       //Set Reminder
