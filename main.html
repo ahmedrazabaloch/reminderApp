@@ -17,14 +17,14 @@
       <div class="box">
         <!-- Header Start -->
         <header>
-          <div id="newTask">
+          <div id="newTask" onclick="newTask()">
             <p>New Task <i class="fa-solid fa-plus"></i></p>
           </div>
           <div id="clock">
-            <p id="date"></p>
             <p id="time"></p>
+            <p id="date"></p>
           </div>
-          <div id="namazR">
+          <div id="namazR" onclick="namazR()">
             <p><i class="fa-solid fa-mosque"></i>Namaz Reminder</p>
           </div>
         </header>
@@ -58,7 +58,7 @@
         </main>
         <!-- User Value Section Start -->
         <section id="section">
-          <div class="sectionBox" style="display: none">
+          <div class="sectionBox">
             <div class="secDisply">
               <div class="alarm">
                 <p>Time: <span id="alramSet">12:00</span></p>

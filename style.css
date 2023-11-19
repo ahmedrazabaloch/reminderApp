@@ -1,3 +1,17 @@
+@font-face {
+  font-family: "clockicons";
+  src: url("https://db.onlinewebfonts.com/t/84cb021d5f9af287ffff84b61beef6dc.eot");
+  src: url("https://db.onlinewebfonts.com/t/84cb021d5f9af287ffff84b61beef6dc.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/84cb021d5f9af287ffff84b61beef6dc.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/84cb021d5f9af287ffff84b61beef6dc.woff")
+      format("woff"),
+    url("https://db.onlinewebfonts.com/t/84cb021d5f9af287ffff84b61beef6dc.ttf")
+      format("truetype"),
+    url("https://db.onlinewebfonts.com/t/84cb021d5f9af287ffff84b61beef6dc.svg#clockicons")
+      format("svg");
+}
 * {
   margin: 0;
   padding: 0;
@@ -29,7 +43,7 @@
 
 .containers {
   width: 1350px;
-  background-color: #f6f6f6;
+  background-color: #fff;
   margin: 0 auto;
   min-height: 100vh;
   overflow: hidden;
@@ -63,6 +77,15 @@ div#namazR {
   width: 30%;
   user-select: none;
   transition: all 0.3s linear;
+}
+#time {
+  font-family: "clockicons";
+  font-size: 2em;
+  line-height: 60px;
+  font-weight: 400;
+}
+#date {
+  font-size: 1em;
 }
 div#newTask:hover,
 div#namazR:hover {
@@ -113,11 +136,9 @@ div#namazR:hover {
   color: #fff;
 }
 .userfield {
-  /* padding: 10px; */
   border-radius: 5px;
   display: flex;
   align-items: center;
-  /* gap: 10px; */
 }
 .userfield input {
   padding: 10px;
@@ -126,7 +147,6 @@ div#namazR:hover {
 }
 .userfield label {
   padding: 10.8px 10px;
-  /* height: 49px; */
   text-align: center;
   border: 1px solid #ff6565;
   cursor: pointer;
@@ -162,6 +182,7 @@ div#namazR:hover {
   overflow: hidden;
   max-height: 300px;
   margin-bottom: 10px;
+  display: none;
 }
 .alarm {
   display: flex;
@@ -201,11 +222,9 @@ p#discerption {
   margin: 10px auto;
   padding: 20px 10px;
   width: 80%;
-  /* justify-content: space-between; */
   font-size: 2.5em;
   align-items: center;
   color: #fff;
-  
 }
 /* toggle button */
 .switch {
