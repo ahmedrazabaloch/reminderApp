@@ -1,6 +1,6 @@
 // Namaz Reminder
 var namaz = document.querySelector(".namaz");
-var hideSection = document.querySelector(".sectionBox");
+var hideSection = document.querySelector(".hidden");
 var userSelect = document.querySelector(".hide");
 
 function newTask() {
@@ -24,6 +24,37 @@ setInterval(() => {
   var currentTime = moment().format("LTS");
   time.innerHTML = currentTime;
 }, 1000);
+
+let fajar = document.getElementById("fajar").innerText.slice(0),
+  zuhar = document.getElementById("zuhar").innerText.slice(0),
+  asar = document.getElementById("asar").innerText.slice(0),
+  magrib = document.getElementById("magrib").innerText.slice(0),
+  esha = document.getElementById("esha").innerText.slice(0);
+
+let interval = setInterval(() => {
+  let sliceTime;
+  let timeClock = [moment().format("LTS")];
+  for (var i = 0; i < timeClock.length; i++) {
+    sliceTime = timeClock[i];
+  }
+  var checkinnTime = sliceTime.slice(0, 4);
+  if (fajar === checkinnTime) {
+    alert("Namaz e Fajar");
+  }
+  if (zuhar === checkinnTime) {
+    alert("Namaz e Fajar");
+  }
+  if (asar === checkinnTime) {
+    alert("Namaz e Fajar");
+  }
+  if (magrib === checkinnTime) {
+    alert("Namaz e Fajar");
+  }
+  if (esha === checkinnTime) {
+    alert("Namaz e Fajar");
+  }
+}, 1000);
+
 // Getting Data from User
 let userTitles = document.getElementById("userTitle"); // Title
 let userDiscerption = document.getElementById("userDis"); // Discerptions
@@ -39,7 +70,7 @@ function saveData() {
       alert("Discerption Can't be empty");
     } else {
       section.innerHTML += `
-  <div class="sectionBox">
+  <div class="sectionBox animate__animated animate__fadeInLeft">
     <div class="secDisply">
       <div class="alarm">
         <p>Time: <span id="alramSet">${inputTime.value || "03:00"}</span></p>

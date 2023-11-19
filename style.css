@@ -43,10 +43,10 @@
 
 .containers {
   width: 1350px;
-  background-color: #fff;
   margin: 0 auto;
   min-height: 100vh;
   overflow: hidden;
+  background-color: #ff6565;
 }
 .box {
   padding: 20px 50px;
@@ -59,7 +59,6 @@ section {
   padding: 10px;
 }
 .box header {
-  background-color: #ff6565;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -89,9 +88,12 @@ div#namazR {
   font-size: 1em;
 }
 div#newTask:hover,
-div#namazR:hover {
+div#namazR:hover,
+.namazHeading:hover {
   background-color: #f6f6f6;
   color: #ff6565;
+  transform: scale(1.1);
+  cursor: pointer;
 }
 #newTask p,
 #namazR p {
@@ -186,7 +188,6 @@ div#namazR:hover {
   overflow: hidden;
   max-height: 300px;
   margin-bottom: 10px;
-  display: none;
 }
 .alarm {
   display: flex;
@@ -212,6 +213,7 @@ p#discerption {
 .namaz {
   width: 80%;
   margin: 0 auto;
+  user-select: none;
 }
 .namaz > div > p,
 .switch {
@@ -227,6 +229,7 @@ p#discerption {
   justify-content: space-between;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.45);
   border-radius: 10px;
+  transition: all 0.3s linear;
 }
 .nestedDiv {
   display: flex;
