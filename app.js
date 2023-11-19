@@ -91,7 +91,7 @@ function saveData() {
   }
   console.log("input time format==>", formattedTime);
 
-  setInterval(() => {
+  let clearInter = setInterval(() => {
     let sliceTime;
     let timeClock = [moment().format("LTS")];
     console.log(timeClock);
@@ -100,6 +100,7 @@ function saveData() {
     }
     if (formattedTime.slice(0, 5) == sliceTime.slice(0, 5)) {
       alert("working");
+      clearInterval(clearInter);
     }
   }, 1000);
 }

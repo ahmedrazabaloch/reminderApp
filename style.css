@@ -176,18 +176,19 @@ div#namazR:hover,
   background-color: #ff6565;
   display: flex;
   flex-wrap: wrap;
-  gap: 5%;
+  gap: 2%;
 }
 .secDisply {
   color: #fff;
-  font-size: 1.5em;
+  font-size: 1.3em;
 }
 .sectionBox {
-  width: 30%;
-  border: 1px solid #fff;
+  width: 32%;
   overflow: hidden;
   max-height: 300px;
-  margin-bottom: 10px;
+  margin: 20px auto;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.45);
+  border-radius: 10px;
 }
 .alarm {
   display: flex;
