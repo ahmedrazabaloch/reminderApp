@@ -1,19 +1,16 @@
-// Namaz Reminder
+// Namaz & Task Section Show Hide
 var namaz = document.querySelector(".namaz");
 var hideSection = document.querySelector(".hidden");
 var userSelect = document.querySelector(".hide");
-
 function newTask() {
   namaz.style.display = "none";
   hideSection.style.display = "block";
   userSelect.style.display = "block";
-  console.log("click on task");
 }
 function namazR() {
   namaz.style.display = "block";
   hideSection.style.display = "none";
   userSelect.style.display = "none";
-  console.log("click on namaz");
 }
 // Main page timer
 var date = document.getElementById("date");
@@ -24,13 +21,13 @@ setInterval(() => {
   var currentTime = moment().format("LTS");
   time.innerHTML = currentTime;
 }, 1000);
-
+// Namaz Time Notification
 let fajar = document.getElementById("fajar").innerText.slice(0),
   zuhar = document.getElementById("zuhar").innerText.slice(0),
   asar = document.getElementById("asar").innerText.slice(0),
   magrib = document.getElementById("magrib").innerText.slice(0),
   esha = document.getElementById("esha").innerText.slice(0);
-
+// checking time if they match
 let interval = setInterval(() => {
   let sliceTime;
   let timeClock = [moment().format("LTS")];
@@ -54,27 +51,31 @@ let interval = setInterval(() => {
     alert("Namaz e Fajar");
   }
 }, 1000);
-
 // Getting Data from User
 let userTitles = document.getElementById("userTitle"); // Title
 let userDiscerption = document.getElementById("userDis"); // Discerptions
 let inputTime = document.getElementById("setTime"); // Time
 let inputDate = document.getElementById("setDate"); // Date
+let formattedTime;
 // Set & Show Data
 let section = document.getElementById("section");
+let flag = false;
 function saveData() {
+  // Validation
   if (userTitles.value.trim() === "") {
     alert("Title Can't be empty");
   } else {
     if (userDiscerption.value.trim() === "") {
       alert("Discerption Can't be empty");
     } else {
+      formattedTime = moment(inputTime.value, "HH:mm").format("h:mm A");
+      //Set Reminder
       section.innerHTML += `
   <div class="sectionBox animate__animated animate__fadeInLeft">
     <div class="secDisply">
       <div class="alarm">
-        <p>Time: <span id="alramSet">${inputTime.value || "03:00"}</span></p>
-        <span>||</span>
+        <p>Time: <span id="alramSet">${formattedTime || "03:00"}</span></p>
+        <span> | </span>
         <p>Date: <span id="dateSet">${inputDate.value || "Every-Day"}</span></p>
         </div>
         <div class="reminderValue">
@@ -88,4 +89,17 @@ function saveData() {
       userDiscerption.value = "";
     }
   }
+  console.log("input time format==>", formattedTime);
+
+  setInterval(() => {
+    let sliceTime;
+    let timeClock = [moment().format("LTS")];
+    console.log(timeClock);
+    for (var i = 0; i < timeClock.length; i++) {
+      sliceTime = timeClock[i];
+    }
+    if (formattedTime.slice(0, 5) == sliceTime.slice(0, 5)) {
+      alert("working");
+    }
+  }, 1000);
 }
