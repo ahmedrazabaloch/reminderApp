@@ -54,7 +54,7 @@ function login() {
     alert("Email id not registered");
   } else {
     if (loginEmail !== details.email) {
-      alert("Email id not registered");
+      alert("Please enter a valid email");
     } else if (loginPass !== details.password) {
       alert("Wrong Password");
     } else {
