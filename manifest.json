@@ -1,0 +1,16 @@
+{
+    "name": "MindMinder",
+    "short_name": "MindMinder",
+    "description": "MindMinder is a reminder app that reminds you of the five prayer times. Additionally, you can add your own custom reminders.",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#ff6565",
+    "icons": [
+        {
+            "src": "/path/to/icon.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ]
+}
