@@ -3,7 +3,7 @@ const emailRegex =
   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
 
-function singUp() {
+function signup() {
   // >>>> Signup Page <<<<
   var signUpUserName = document.getElementById("signUpUserName").value;
   var signUpEmail = document.getElementById("signUpEmail").value;
@@ -23,7 +23,7 @@ function singUp() {
     var userDetails = {
       name: signUpUserName,
       email: signUpEmail,
-      passowrd: signUpPassword,
+      password: signUpPassword,
     };
     //Pusing object to local storage
     storData.push(userDetails);
@@ -35,22 +35,32 @@ function singUp() {
 }
 
 // >>>> Login Page <<<<
-
-// Getting data from local storage
-var storData = JSON.parse(localStorage.getItem("storeDetails")) || [];
-for (var i = 0; i < storData.length; i++) {
-  details = storData[i];
-}
 function login() {
-  let loginEmail = document.getElementById("email").value;
-  let loginPass = document.getElementById("password").value;
-  if (loginEmail !== details.email) {
-    alert("email id not registered");
-  } else if (loginPass !== details.passowrd) {
-    alert("Wrong Password");
+  // Getting data from local storage
+  let storData = JSON.parse(localStorage.getItem("storeDetails")) || [];
+  let details;
+
+  for (var i = 0; i < storData.length; i++) {
+    details = storData[i];
+
+    var loginEmail = document.getElementById("email").value;
+    var loginPass = document.getElementById("password").value;
+
+    if (loginEmail === details.email) {
+      break;
+    }
+  }
+  if (!details) {
+    alert("Email id not registered");
   } else {
-    setTimeout(() => {
-      document.location.href = "main.html";
-    }, 3000);
+    if (loginEmail !== details.email) {
+      alert("Email id not registered");
+    } else if (loginPass !== details.password) {
+      alert("Wrong Password");
+    } else {
+      setTimeout(() => {
+        document.location.href = "main.html";
+      }, 3000);
+    }
   }
 }
