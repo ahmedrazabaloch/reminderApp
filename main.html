@@ -9,7 +9,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -25,11 +28,11 @@
             <p id="date"></p>
           </div>
           <div id="namazR" onclick="namazR()">
-            <p><i class="fa-solid fa-mosque"></i>Namaz Reminder</p>
+            <p><i class="fa-solid fa-mosque"></i>Prayer Time</p>
           </div>
         </header>
         <!-- Main Section Start -->
-        <main>
+        <main class="hide animate__animated animate__fadeInDown">
           <div id="userinput">
             <div class="userfield">
               <label for="userTitle">Title:</label>
@@ -58,7 +61,7 @@
         </main>
         <!-- User Value Section Start -->
         <section id="section">
-          <div class="sectionBox">
+          <div class="sectionBox animate__animated animate__fadeInLeft">
             <div class="secDisply">
               <div class="alarm">
                 <p>Time: <span id="alramSet">12:00</span></p>
@@ -75,46 +78,70 @@
             </div>
           </div>
           <!-- Namaz reminder -->
-          <div class="namaz">
-            <div class="fajar">
-              <p>Fajar</p>
-              <p>Time: <span>5:31 am</span></p>
-              <label class="switch">
-                <input type="checkbox" />
-                <span class="slider"></span>
-              </label>
+          <div class="namaz animate__animated animate__fadeInRight">
+            <div class="namazHeading">
+              <div class="nestedDiv">
+                <p>Fajar</p>
+                <p>Time: <span>05:31 am</span></p>
+              </div>
+              <div>
+                <label class="switch">
+                  <input type="checkbox" />
+
+                  <span class="slider"></span>
+                </label>
+              </div>
             </div>
-            <div class="zuhar">
-              <p>Zuhar</p>
-              <p>Time: <span>12:17 pm</span></p>
-              <label class="switch">
-                <input type="checkbox" checked />
-                <span class="slider"></span>
-              </label>
+            <div class="namazHeading">
+              <div class="nestedDiv">
+                <p>Zuhar</p>
+                <p>Time: <span>12:17 pm</span></p>
+              </div>
+              <div>
+                <label class="switch">
+                  <input type="checkbox" checked />
+
+                  <span class="slider"></span>
+                </label>
+              </div>
             </div>
-            <div class="asar">
-              <p>Asar</p>
-              <p>Time: <span>4:08 pm</span></p>
-              <label class="switch">
-                <input type="checkbox" checked />
-                <span class="slider"></span>
-              </label>
+            <div class="namazHeading">
+              <div class="nestedDiv">
+                <p>Asar</p>
+                <p>Time: <span>04:08 pm</span></p>
+              </div>
+              <div>
+                <label class="switch">
+                  <input type="checkbox" checked />
+                  <span class="slider"></span>
+                </label>
+              </div>
             </div>
-            <div class="magrib">
-              <p>Magrib</p>
-              <p>Time: <span>5:44 pm</span></p>
-              <label class="switch">
-                <input type="checkbox" checked />
-                <span class="slider"></span>
-              </label>
+            <div class="namazHeading">
+              <div class="nestedDiv">
+                <p>Magrib</p>
+                <p>Time: <span>05:44 pm</span></p>
+              </div>
+              <div>
+                <label class="switch">
+                  <input type="checkbox" checked />
+
+                  <span class="slider"></span>
+                </label>
+              </div>
             </div>
-            <div class="esha">
-              <p>Esha</p>
-              <p>Time: <span>7:03 pm</span></p>
-              <label class="switch">
-                <input type="checkbox" checked />
-                <span class="slider"></span>
-              </label>
+            <div class="namazHeading">
+              <div class="nestedDiv">
+                <p>Esha</p>
+                <p>Time: <span>07:03 pm</span></p>
+              </div>
+              <div>
+                <label class="switch">
+                  <input type="checkbox" checked />
+
+                  <span class="slider"></span>
+                </label>
+              </div>
             </div>
           </div>
         </section>

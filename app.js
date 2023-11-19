@@ -1,22 +1,20 @@
 // Namaz Reminder
 var namaz = document.querySelector(".namaz");
 var hideSection = document.querySelector(".sectionBox");
+var userSelect = document.querySelector(".hide");
 
 function newTask() {
   namaz.style.display = "none";
   hideSection.style.display = "block";
+  userSelect.style.display = "block";
   console.log("click on task");
 }
 function namazR() {
   namaz.style.display = "block";
   hideSection.style.display = "none";
+  userSelect.style.display = "none";
   console.log("click on namaz");
 }
-// let namazR = document.getElementById("namazR");
-// namazR.addEventListener("click", () => {});
-// let newTask = document.getElementById("newTask");
-// newTask.addEventListener("click", () => {});
-
 // Main page timer
 var date = document.getElementById("date");
 var clockDate = moment().format("ll");
