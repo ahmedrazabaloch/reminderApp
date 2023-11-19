@@ -75,9 +75,29 @@ function signup() {
     //Pusing object to local storage
     storData.push(userDetails);
     localStorage.setItem("storeDetails", JSON.stringify(storData));
+    for (var i = 0; i < storData.length; i++) {
+      details = storData[i];
+    }
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 2000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+    });
+    Toast.fire({
+      icon: "success",
+      title: `Registerd successfully
+      Welcom ${details.name}
+      `,
+    });
     setTimeout(() => {
       document.location.href = "main.html";
-    }, 3000);
+    }, 2000);
   }
 }
 
