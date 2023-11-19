@@ -42,6 +42,7 @@ function login() {
 
   for (var i = 0; i < storData.length; i++) {
     details = storData[i];
+    console.log("details==>", details);
 
     var loginEmail = document.getElementById("email").value;
     var loginPass = document.getElementById("password").value;
@@ -55,7 +56,11 @@ function login() {
   } else {
     if (loginEmail !== details.email) {
       alert("Please enter a valid email");
+      console.log("loginEmail==>", loginEmail);
+      console.log("details.email==>", details.email);
     } else if (loginPass !== details.password) {
+      console.log("loginPass==>", loginPass);
+      console.log("details.password==>", details.password);
       alert("Wrong Password");
     } else {
       setTimeout(() => {
