@@ -199,22 +199,22 @@ div#namazR:hover,
   display: flex;
   justify-content: space-around;
   padding: 10px;
-  color: var(--secondaryColor);
-  background-color: var(--primaryColor);
+  color: var(--primaryColor);
+  background-color: var(--secondaryColor);
 }
 p#titles {
   font-size: 32px;
   text-align: center;
   font-weight: 500;
   padding: 10px;
-  color: var(--primaryColor);
-  background-color: var(--secondaryColor);
+  color: var(--secondaryColor);
+  background-color: var(--primaryColor);
 }
 p#discerption {
   text-align: justify;
   padding: 10px;
-  color: var(--secondaryColor);
-  background-color: var(--primaryColor);
+  color: var(--primaryColor);
+  background-color: var(--secondaryColor);
 }
 .namaz {
   width: 80%;
@@ -312,5 +312,9 @@ div:where(.swal2-container) div:where(.swal2-popup) {
 }
 
 div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+  background-color: var(--primaryColor) !important;
+}
+
+.swal2-timer-progress-bar {
   background-color: var(--primaryColor) !important;
 }

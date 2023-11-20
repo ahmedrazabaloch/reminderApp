@@ -1,45 +1,8 @@
-// PWA Service Worker
-//for push notification
-// Check if the browser supports service workers
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker
-    .register("/serviceworker.js")
-    .then(function (registration) {
-      console.log("Service Worker registered with scope:", registration.scope);
-      return registration.pushManager
-        .getSubscription()
-        .then(function (subscription) {
-          if (subscription) {
-            console.log("User is already subscribed:", subscription);
-          } else {
-            return registration.pushManager
-              .subscribe({ userVisibleOnly: true })
-              .then(function (newSubscription) {
-                console.log("Subscribed:", newSubscription);
-              });
-          }
-        });
-    })
-    .catch(function (error) {
-      console.error("Service Worker registration failed:", error);
-    });
-}
-
-// Request notification permission
-if ("Notification" in window) {
-  Notification.requestPermission().then(function (permission) {
-    if (permission === "granted") {
-      console.log("Notification permission granted.");
-    } else {
-      console.error("Notification permission denied.");
-    }
-  });
-}
 // Namaz & Task Section Show Hide
-var namaz = document.querySelector(".namaz");
-var hideSection = document.querySelector(".sectionBox");
-var userSelect = document.querySelector(".hide");
-var hidehoja = document.querySelector("#hidehoja");
+const namaz = document.querySelector(".namaz"),
+  hideSection = document.querySelector(".sectionBox"),
+  userSelect = document.querySelector(".hide"),
+  hidehoja = document.querySelector("#hidehoja");
 setTimeout(() => {
   namaz.style.display = "block";
 }, 1500);
@@ -58,51 +21,65 @@ function namazR() {
   hideSection.style.display = "none";
   userSelect.style.display = "none";
 }
-// Main page timer
-var date = document.getElementById("date");
-var clockDate = moment().format("ll");
+// >>>>>> Main Page Code <<<<<<
+// Set date on top of the display
+let date = document.getElementById("date"),
+  clockDate = moment().format("ll");
 date.innerHTML = clockDate;
-var time = document.getElementById("time");
+
+// Set Timer on top of the display
+const timerClock = document.getElementById("time");
 setInterval(() => {
-  var currentTime = moment().format("LTS");
-  time.innerHTML = currentTime;
+  let currentTime = moment().format("LTS");
+  timerClock.innerHTML = currentTime;
 }, 1000);
-// Namaz Time Notification
-let fajar = document.getElementById("fajar").innerText.slice(0),
-  zuhar = document.getElementById("zuhar").innerText.slice(0),
-  asar = document.getElementById("asar").innerText.slice(0),
-  magrib = document.getElementById("magrib").innerText.slice(0),
-  esha = document.getElementById("esha").innerText.slice(0);
-// checking time if they match
-let interval = setInterval(() => {
-  let sliceTime;
-  let timeClock = [moment().format("LTS")];
-  for (var i = 0; i < timeClock.length; i++) {
-    sliceTime = timeClock[i];
+// Namaz Timing
+const fajar = "5:30am",
+  zuhar = "12:30pm",
+  asar = "3:45pm",
+  magrib = "6:15pm",
+  esha = "8:30pm";
+
+let timeClock, dayNight;
+
+setInterval(function () {
+  const currentDate = new Date();
+  const currentHours = currentDate.getHours();
+  let currentMinutes = currentDate.getMinutes();
+
+  // Set am/pm
+  dayNight = currentHours > 12 ? "pm" : "am";
+
+  // Set minutes
+  currentMinutes = currentMinutes < 10 ? `0${currentMinutes}` : currentMinutes;
+
+  // Create formatted time string
+  timeClock = `${currentHours}:${currentMinutes}${dayNight}`;
+
+  // Check if the current time matches any prayer time
+  if (fajar == timeClock) {
+    console.log("Namaz e Fajar");
   }
-  var checkinnTime = sliceTime.slice(0, 4);
-  if (fajar === checkinnTime) {
-    alert("Namaz e Fajar");
+  if (zuhar == timeClock) {
+    console.log("Namaz e Zuhar");
   }
-  if (zuhar === checkinnTime) {
-    alert("Namaz e Fajar");
+  if (asar == timeClock) {
+    console.log("Namaz e Asar");
   }
-  if (asar === checkinnTime) {
-    alert("Namaz e Fajar");
+  if (magrib == timeClock) {
+    console.log("Namaz e Magrib");
   }
-  if (magrib === checkinnTime) {
-    alert("Namaz e Fajar");
-  }
-  if (esha === checkinnTime) {
-    alert("Namaz e Fajar");
+  if (esha == timeClock) {
+    console.log("Namaz e Esha");
   }
 }, 1000);
+
 // Getting Data from User
-let userTitles = document.getElementById("userTitle"); // Title
-let userDiscerption = document.getElementById("userDis"); // Discerptions
-let inputTime = document.getElementById("setTime"); // Time
-let inputDate = document.getElementById("setDate"); // Date
-let formattedTime;
+let userTitles = document.getElementById("userTitle"),
+  userDiscerption = document.getElementById("userDis"),
+  inputTime = document.getElementById("setTime"),
+  inputDate = document.getElementById("setDate"),
+  formattedTime;
 // Set & Show Data
 let hideinnher = document.getElementById("hideinnher");
 let flag = false;
@@ -175,57 +152,14 @@ function saveData() {
     }
   }
   // Matching Time the show alert
-  let clearInter = setInterval(() => {
-    let sliceTime;
-    let timeClock = [moment().format("LTS")];
-    for (var i = 0; i < timeClock.length; i++) {
-      sliceTime = timeClock[i];
-    }
-    if (formattedTime.slice(0,) == sliceTime.slice(0,)) {
-      // Swal.fire({
-      //   title: `Reminder`,
-      //   showClass: {
-      //     popup: `
-      //         animate__animated
-      //         animate__fadeInUp
-      //         animate__faster
-      //       `,
-      //   },
-      //   hideClass: {
-      //     popup: `
-      //         animate__animated
-      //         animate__fadeOutDown
-      //         animate__faster
-      //       `,
-      //   },
-      // });
-      showNotification();
-      // clearInterval(clearInter);
+  setInterval(() => {
+    const currentDate = new Date();
+    const currentHours = currentDate.getHours();
+    let currentMinutes = currentDate.getMinutes();
+    // Create formatted time string
+    timeClock = `${currentHours}:${currentMinutes}`;
+    if (formattedTime.slice(0, 4) == timeClock) {
+      console.log("reminder");
     }
   }, 1000);
-}
-// Window Notification
-function showNotification() {
-  // Check if the Notification API is available
-  if (!("Notification" in window)) {
-    alert("This browser does not support desktop notification");
-  } else if (Notification.permission === "permitted") {
-    // If permission is already granted, show the notification
-    new Notification("Reminder", {
-      body: "ALERT!!! It's time for your reminder!",
-    });
-  } else if (Notification.permission !== "denied") {
-    // Request permission from the user
-
-    Notification.requestPermission().then(function (permission) {
-      if (permission === "granted") {
-        // If the user allows, show the notification
-        new Notification("Reminder", {
-          body: "granted It's time for your reminder!",
-        });
-        ringtone.play();
-        ringtone.loop = true;
-      }
-    });
-  }
 }

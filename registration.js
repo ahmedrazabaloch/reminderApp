@@ -1,4 +1,3 @@
-
 // Email Validition
 const emailRegex =
   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -81,7 +80,7 @@ function signup() {
     }
     const Toast = Swal.mixin({
       toast: true,
-      position: "top-end",
+      position: "top",
       showConfirmButton: false,
       timer: 2000,
       timerProgressBar: true,
@@ -176,7 +175,7 @@ function login() {
     } else {
       const Toast = Swal.mixin({
         toast: true,
-        position: "top-end",
+        position: "top",
         showConfirmButton: false,
         timer: 2000,
         timerProgressBar: true,
