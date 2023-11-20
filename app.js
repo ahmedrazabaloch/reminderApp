@@ -5,17 +5,22 @@ var userSelect = document.querySelector(".hide");
 setTimeout(() => {
   namaz.style.display = "block";
 }, 1500);
-function newTask() {
-  console.log("Inside newTask function");
-  namaz.style.display = "none";
-  hideSection.style.display = "block";
-  userSelect.style.display = "block";
-}
-function namazR() {
-  console.log("Inside namazR function");
-  namaz.style.display = "block";
-  hideSection.style.display = "none";
-  userSelect.style.display = "none";
+
+try {
+  function newTask() {
+    console.log("Inside newTask function");
+    namaz.style.display = "none";
+    hideSection.style.display = "block";
+    userSelect.style.display = "block";
+  }
+  function namazR() {
+    console.log("Inside namazR function");
+    namaz.style.display = "block";
+    hideSection.style.display = "none";
+    userSelect.style.display = "none";
+  }
+} catch (error) {
+  console.log(error);
 }
 // Main page timer
 var date = document.getElementById("date");
