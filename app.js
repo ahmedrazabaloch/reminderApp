@@ -1,16 +1,18 @@
 // Namaz & Task Section Show Hide
 var namaz = document.querySelector(".namaz");
-var hideSection = document.querySelector(".hidden");
+var hideSection = document.querySelector(".sectionBox");
 var userSelect = document.querySelector(".hide");
 setTimeout(() => {
   namaz.style.display = "block";
 }, 1500);
 function newTask() {
+  console.log("Inside newTask function");
   namaz.style.display = "none";
   hideSection.style.display = "block";
   userSelect.style.display = "block";
 }
 function namazR() {
+  console.log("Inside namazR function");
   namaz.style.display = "block";
   hideSection.style.display = "none";
   userSelect.style.display = "none";
