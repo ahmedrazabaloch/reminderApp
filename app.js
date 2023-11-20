@@ -181,25 +181,51 @@ function saveData() {
     for (var i = 0; i < timeClock.length; i++) {
       sliceTime = timeClock[i];
     }
-    if (formattedTime.slice(0, 5) == sliceTime.slice(0, 5)) {
-      Swal.fire({
-        title: `Reminder`,
-        showClass: {
-          popup: `
-              animate__animated
-              animate__fadeInUp
-              animate__faster
-            `,
-        },
-        hideClass: {
-          popup: `
-              animate__animated
-              animate__fadeOutDown
-              animate__faster
-            `,
-        },
-      });
-      clearInterval(clearInter);
+    if (formattedTime.slice(0,) == sliceTime.slice(0,)) {
+      // Swal.fire({
+      //   title: `Reminder`,
+      //   showClass: {
+      //     popup: `
+      //         animate__animated
+      //         animate__fadeInUp
+      //         animate__faster
+      //       `,
+      //   },
+      //   hideClass: {
+      //     popup: `
+      //         animate__animated
+      //         animate__fadeOutDown
+      //         animate__faster
+      //       `,
+      //   },
+      // });
+      showNotification();
+      // clearInterval(clearInter);
     }
   }, 1000);
+}
+// Window Notification
+function showNotification() {
+  // Check if the Notification API is available
+  if (!("Notification" in window)) {
+    alert("This browser does not support desktop notification");
+  } else if (Notification.permission === "permitted") {
+    // If permission is already granted, show the notification
+    new Notification("Reminder", {
+      body: "ALERT!!! It's time for your reminder!",
+    });
+  } else if (Notification.permission !== "denied") {
+    // Request permission from the user
+
+    Notification.requestPermission().then(function (permission) {
+      if (permission === "granted") {
+        // If the user allows, show the notification
+        new Notification("Reminder", {
+          body: "granted It's time for your reminder!",
+        });
+        ringtone.play();
+        ringtone.loop = true;
+      }
+    });
+  }
 }
