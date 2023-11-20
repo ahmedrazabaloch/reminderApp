@@ -30,13 +30,15 @@
   .containers,
   #userinput,
   .sectionBox,
-  #btn {
+  #btn,
+  div#hideinnher {
     width: 100%;
   }
   .userfield label {
     width: 40%;
   }
-  #section {
+  #section,
+  div#hideinnher {
     flex-direction: column-reverse;
   }
   .alarm {

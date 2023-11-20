@@ -2,25 +2,24 @@
 var namaz = document.querySelector(".namaz");
 var hideSection = document.querySelector(".sectionBox");
 var userSelect = document.querySelector(".hide");
+var hidehoja = document.querySelector("#hidehoja");
 setTimeout(() => {
   namaz.style.display = "block";
 }, 1500);
 
-try {
-  function newTask() {
-    console.log("Inside newTask function");
-    namaz.style.display = "none";
-    hideSection.style.display = "block";
-    userSelect.style.display = "block";
-  }
-  function namazR() {
-    console.log("Inside namazR function");
-    namaz.style.display = "block";
-    hideSection.style.display = "none";
-    userSelect.style.display = "none";
-  }
-} catch (error) {
-  console.log(error);
+function newTask() {
+  namaz.style.display = "none";
+  hideSection.style.display = "block";
+  userSelect.style.display = "block";
+  hideinnher.style.display = "flex";
+}
+function namazR() {
+  hideinnher.style.display = "none";
+  console.log(hideSection);
+  console.log("Inside namazR function");
+  namaz.style.display = "block";
+  hideSection.style.display = "none";
+  userSelect.style.display = "none";
 }
 // Main page timer
 var date = document.getElementById("date");
@@ -68,7 +67,7 @@ let inputTime = document.getElementById("setTime"); // Time
 let inputDate = document.getElementById("setDate"); // Date
 let formattedTime;
 // Set & Show Data
-let section = document.getElementById("section");
+let hideinnher = document.getElementById("hideinnher");
 let flag = false;
 function saveData() {
   // Validation
@@ -112,7 +111,7 @@ function saveData() {
     } else {
       formattedTime = moment(inputTime.value, "HH:mm").format("h:mm A");
       //Set Reminder
-      section.innerHTML += `
+      hideinnher.innerHTML += `
   <div class="sectionBox animate__animated animate__fadeInLeft">
     <div class="secDisply">
       <div class="alarm">

@@ -245,6 +245,9 @@ p#discerption {
 .nestedDiv p {
   width: 50%;
 }
+div#hideinnher {
+  width: 100%;
+}
 /* toggle button */
 .switch {
   --secondary-container: #f6f6f6;
