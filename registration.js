@@ -130,7 +130,7 @@ function login() {
   }
   if (!details) {
     Swal.fire({
-      title: "Email id not registered",
+      title: "Please register your email address",
       showClass: {
         popup: `
           animate__animated

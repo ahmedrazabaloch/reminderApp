@@ -135,7 +135,6 @@ function saveData() {
   let clearInter = setInterval(() => {
     let sliceTime;
     let timeClock = [moment().format("LTS")];
-    console.log(timeClock);
     for (var i = 0; i < timeClock.length; i++) {
       sliceTime = timeClock[i];
     }
