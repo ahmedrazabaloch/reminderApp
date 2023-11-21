@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Prayer Reminder</title>
+    <link rel="manifest" href="manifest.json" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
@@ -148,8 +149,20 @@
     </div>
     <!-- Powered by Ahmedraza https://ahmedrazabaloch.netlify.app -->
     <script>
-      if (typeof navigator.serviceWorker !== "undefined") {
-        navigator.serviceWorker.register("sw.js");
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("serviceworker.js", {
+            scope: "https://prayer-reminder-ar.netlify.app/",
+          })
+          .then((registration) => {
+            console.log(
+              "Service Worker registered with scope:",
+              registration.scope
+            );
+          })
+          .catch((error) => {
+            console.error("Service Worker registration failed:", error);
+          });
       }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

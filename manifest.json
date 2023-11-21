@@ -6,8 +6,8 @@
   "name": "Prayer Reminder",
   "orientation": "any",
   "scope": "https://prayer-reminder-ar.netlify.app/",
-  "short_name": "Prayer Reminder",
-  "start_url": ".main.html",
+  "short_name": "Reminder",
+  "start_url": "./main.html",
   "theme_color": "#ff6565",
   "id": "ahmedraza",
   "categories": [
