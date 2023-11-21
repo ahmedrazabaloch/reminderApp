@@ -331,3 +331,6 @@ div:where(.swal2-container) div:where(.swal2-popup) {
 div:where(.swal2-container) h2:where(.swal2-title) {
   padding: unset !important;
 }
+div:where(.swal2-container).swal2-center > .swal2-popup {
+  padding: 20px !important;
+}
