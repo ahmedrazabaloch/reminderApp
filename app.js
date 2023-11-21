@@ -172,9 +172,9 @@ function saveData() {
   //     console.log("reminder");
   //   }
   // }, 1000);
-  let interval = true;
+  flag = true;
   setInterval(function () {
-    if (interval) {
+    if (flag) {
       const currentDate = new Date();
       const currentHours = currentDate.getHours();
       let currentMinutes = currentDate.getMinutes();
@@ -196,7 +196,7 @@ function saveData() {
             }
           });
         }
-        interval = false;
+        flag = false;
       }
     }
   }, 1000);
