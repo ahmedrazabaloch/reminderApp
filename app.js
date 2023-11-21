@@ -50,7 +50,7 @@ const fajar = "5:30am",
   esha = "8:30pm";
 
 let timeClock;
-
+let notification;
 setInterval(function () {
   const currentDate = new Date();
   const currentHours = currentDate.getHours();
@@ -61,13 +61,6 @@ setInterval(function () {
   timeClock = moment(`${currentHours}:${currentMinutes}`, "HH:mm").format(
     "h:mma"
   );
-
-  let fajarTime = timeClock == fajar ? true : false;
-  let zuharTime = timeClock == zuhar ? true : false;
-  let asarTime = timeClock == asar ? true : false;
-  let magribTime = timeClock == magrib ? true : false;
-  let eshaTime = timeClock == esha ? true : false;
-
   // Check if the current time matches any prayer time
   if (fajar == timeClock) {
     notification = new Notification("Fajar Prayer Time");
