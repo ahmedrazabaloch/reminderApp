@@ -8,14 +8,12 @@ if ("serviceWorker" in navigator) {
   });
 }
 window.addEventListener("load", () => {
-  //  const askForNotificationPermission = () => {
   Notification.requestPermission((result) => {
     if (result === "granted") {
-      displayConfirmNotification();
-      // configurePushSubscription();
+      // displayConfirmNotification();
     }
   });
-  // }
+  
 });
 // Namaz & Task Section Show Hide
 const namaz = document.querySelector(".namaz"),
