@@ -1,5 +1,7 @@
 // <!-- Powered by Ahmedraza https://ahmedrazabaloch.netlify.app -->
 
+// Window Notification
+
 // Namaz & Task Section Show Hide
 const namaz = document.querySelector(".namaz"),
   hideSection = document.querySelector(".sectionBox"),
@@ -56,7 +58,10 @@ setInterval(function () {
   currentMinutes = currentMinutes < 10 ? `0${currentMinutes}` : currentMinutes;
 
   // Create formatted time string
-  timeClock = `${currentHours}:${currentMinutes}${dayNight}`;
+  // timeClock = `${currentHours}:${currentMinutes}${dayNight}`;
+  timeClock = moment(`${currentHours}:${currentMinutes}`, "HH:mm").format(
+    "h:mm A"
+  );
 
   // Check if the current time matches any prayer time
   if (fajar == timeClock) {
@@ -154,14 +159,45 @@ function saveData() {
     }
   }
   // Matching Time the show alert
-  setInterval(() => {
-    const currentDate = new Date();
-    const currentHours = currentDate.getHours();
-    let currentMinutes = currentDate.getMinutes();
-    // Create formatted time string
-    timeClock = `${currentHours}:${currentMinutes}`;
-    if (formattedTime.slice(0, 4) == timeClock) {
-      console.log("reminder");
+
+  // setInterval(() => {
+  //   const currentDate = new Date();
+  //   const currentHours = currentDate.getHours();
+  //   let currentMinutes = currentDate.getMinutes();
+  //   // Create formatted time string
+  //   timeClock = moment(`${currentHours}:${currentMinutes}`, "HH:mm").format(
+  //     "h:mm"
+  //   );
+  //   if (formattedTime.slice(0, 4) == timeClock) {
+  //     console.log("reminder");
+  //   }
+  // }, 1000);
+  let interval = true;
+  setInterval(function () {
+    if (interval) {
+      const currentDate = new Date();
+      const currentHours = currentDate.getHours();
+      let currentMinutes = currentDate.getMinutes();
+      // Create formatted time string
+      timeClock = moment(`${currentHours}:${currentMinutes}`, "HH:mm").format(
+        "h:mm"
+      );
+      console.log("formattedTime==>", formattedTime.slice(0, 4));
+      console.log("timeClock==>", timeClock);
+      if (formattedTime.slice(0, 4) == timeClock) {
+        if (!("Notification" in window)) {
+          alert("This browser does not support desktop notification");
+        } else if (Notification.permission === "granted") {
+          const notification = new Notification("Reminder task time'up");
+        } else if (Notification.permission !== "denied") {
+          Notification.requestPermission().then((permission) => {
+            if (permission === "granted") {
+              const notification = new Notification("Reminder task time'up");
+            }
+          });
+        }
+        interval = false;
+      }
     }
   }, 1000);
 }
