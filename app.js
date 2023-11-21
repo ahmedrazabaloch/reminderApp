@@ -1,14 +1,5 @@
 // <!-- Powered by Ahmedraza https://ahmedrazabaloch.netlify.app -->
 
-// Window Notification
-// window.addEventListener("load", () => {
-//   Notification.requestPermission((result) => {
-//     if (result === "granted") {
-//       const notification = new Notification("Permission Granted");
-//       displayConfirmNotification();
-//     }
-//   });
-// });
 // Namaz & Task Section Show Hide
 const namaz = document.querySelector(".namaz"),
   hideSection = document.querySelector(".sectionBox"),
