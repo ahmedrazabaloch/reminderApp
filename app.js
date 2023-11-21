@@ -1,7 +1,14 @@
 // <!-- Powered by Ahmedraza https://ahmedrazabaloch.netlify.app -->
 
 // Window Notification
-
+// window.addEventListener("load", () => {
+//   Notification.requestPermission((result) => {
+//     if (result === "granted") {
+//       const notification = new Notification("Permission Granted");
+//       displayConfirmNotification();
+//     }
+//   });
+// });
 // Namaz & Task Section Show Hide
 const namaz = document.querySelector(".namaz"),
   hideSection = document.querySelector(".sectionBox"),
@@ -19,8 +26,6 @@ function newTask() {
 }
 function namazR() {
   hideinnher.style.display = "none";
-  console.log(hideSection);
-  console.log("Inside namazR function");
   namaz.style.display = "block";
   hideSection.style.display = "none";
   userSelect.style.display = "none";
@@ -44,40 +49,40 @@ const fajar = "5:30am",
   magrib = "6:15pm",
   esha = "8:30pm";
 
-let timeClock, dayNight;
+let timeClock;
 
 setInterval(function () {
   const currentDate = new Date();
   const currentHours = currentDate.getHours();
   let currentMinutes = currentDate.getMinutes();
-
-  // Set am/pm
-  dayNight = currentHours > 12 ? "pm" : "am";
-
   // Set minutes
   currentMinutes = currentMinutes < 10 ? `0${currentMinutes}` : currentMinutes;
-
-  // Create formatted time string
-  // timeClock = `${currentHours}:${currentMinutes}${dayNight}`;
+  // Create formatted time
   timeClock = moment(`${currentHours}:${currentMinutes}`, "HH:mm").format(
-    "h:mm A"
+    "h:mma"
   );
+
+  let fajarTime = timeClock == fajar ? true : false;
+  let zuharTime = timeClock == zuhar ? true : false;
+  let asarTime = timeClock == asar ? true : false;
+  let magribTime = timeClock == magrib ? true : false;
+  let eshaTime = timeClock == esha ? true : false;
 
   // Check if the current time matches any prayer time
   if (fajar == timeClock) {
-    console.log("Namaz e Fajar");
+    notification = new Notification("Fajar Prayer Time");
   }
   if (zuhar == timeClock) {
-    console.log("Namaz e Zuhar");
+    notification = new Notification("Zuhar Prayer Time");
   }
   if (asar == timeClock) {
-    console.log("Namaz e Asar");
+    notification = new Notification("Asar Prayer Time");
   }
   if (magrib == timeClock) {
-    console.log("Namaz e Magrib");
+    notification = new Notification("Magrib Prayer Time");
   }
   if (esha == timeClock) {
-    console.log("Namaz e Esha");
+    notification = new Notification("Esha Prayer Time");
   }
 }, 1000);
 
@@ -130,7 +135,7 @@ function saveData() {
         },
       });
     } else {
-      formattedTime = moment(inputTime.value, "HH:mm").format("h:mm A");
+      formattedTime = moment(inputTime.value, "HH:mm").format("h:mm a");
       //Set Reminder
       hideinnher.innerHTML += `
   <div class="sectionBox animate__animated animate__fadeInLeft">
@@ -152,26 +157,13 @@ function saveData() {
       Swal.fire({
         position: "top-end",
         icon: "success",
-        title: "Alarm Set",
+        title: "set alarm",
         showConfirmButton: false,
-        timer: 1500,
+        timer: 2000,
       });
     }
   }
-  // Matching Time the show alert
-
-  // setInterval(() => {
-  //   const currentDate = new Date();
-  //   const currentHours = currentDate.getHours();
-  //   let currentMinutes = currentDate.getMinutes();
-  //   // Create formatted time string
-  //   timeClock = moment(`${currentHours}:${currentMinutes}`, "HH:mm").format(
-  //     "h:mm"
-  //   );
-  //   if (formattedTime.slice(0, 4) == timeClock) {
-  //     console.log("reminder");
-  //   }
-  // }, 1000);
+  // Matching Time & send notification
   flag = true;
   setInterval(function () {
     if (flag) {
@@ -180,19 +172,19 @@ function saveData() {
       let currentMinutes = currentDate.getMinutes();
       // Create formatted time string
       timeClock = moment(`${currentHours}:${currentMinutes}`, "HH:mm").format(
-        "h:mm"
+        "h:mm a"
       );
-      console.log("formattedTime==>", formattedTime.slice(0, 4));
-      console.log("timeClock==>", timeClock);
-      if (formattedTime.slice(0, 4) == timeClock) {
+      if (formattedTime == timeClock) {
         if (!("Notification" in window)) {
           alert("This browser does not support desktop notification");
         } else if (Notification.permission === "granted") {
-          const notification = new Notification("Reminder task time'up");
+          const notification = new Notification("Reminder! Time's up");
         } else if (Notification.permission !== "denied") {
           Notification.requestPermission().then((permission) => {
             if (permission === "granted") {
-              const notification = new Notification("Reminder task time'up");
+              const notification = new Notification(
+                "Notification Permission Granted"
+              );
             }
           });
         }

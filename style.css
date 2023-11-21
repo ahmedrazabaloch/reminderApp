@@ -12,6 +12,7 @@
     url("https://db.onlinewebfonts.com/t/84cb021d5f9af287ffff84b61beef6dc.svg#clockicons")
       format("svg");
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -247,6 +248,7 @@ p#discerption {
 }
 div#hideinnher {
   width: 100%;
+  flex-direction: row-reverse;
 }
 /* toggle button */
 .switch {
@@ -317,4 +319,15 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
 
 .swal2-timer-progress-bar {
   background-color: var(--primaryColor) !important;
+}
+
+div:where(.swal2-container).swal2-top-end > .swal2-popup,
+div:where(.swal2-container).swal2-top-right > .swal2-popup {
+  width: 13% !important;
+}
+div:where(.swal2-container) div:where(.swal2-popup) {
+  font-size: 0.8rem !important;
+}
+div:where(.swal2-container) h2:where(.swal2-title) {
+  padding: unset !important;
 }
