@@ -1,3 +1,5 @@
+// <!-- Powered by Ahmedraza https://ahmedrazabaloch.netlify.app -->
+
 // Namaz & Task Section Show Hide
 const namaz = document.querySelector(".namaz"),
   hideSection = document.querySelector(".sectionBox"),
