@@ -54,26 +54,19 @@ setInterval(() => {
   timerClock.innerHTML = currentTime;
 }, 1000);
 // Namaz Timing
-const fajar = "5:30am",
-  zuhar = "12:30pm",
-  asar = "3:45pm",
-  magrib = "6:15pm",
-  esha = "8:30pm";
+const fajar = "5:31:01 am",
+  zuhar = "12:30:01 pm",
+  asar = "3:45:01 pm",
+  magrib = "6:15:01 pm",
+  esha = "8:30:01 pm";
 
 let timeClock;
 let notification;
 setInterval(function () {
-  const currentDate = new Date();
-  const currentHours = currentDate.getHours();
-  let currentMinutes = currentDate.getMinutes();
-  // Set minutes
-  currentMinutes = currentMinutes < 10 ? `0${currentMinutes}` : currentMinutes;
   // Create formatted time
-  timeClock = moment(`${currentHours}:${currentMinutes}`, "HH:mm").format(
-    "h:mma"
-  );
+  timeClock = moment().format("h:mm:ss a");
   // Check if the current time matches any prayer time
-  if (fajar == timeClock) {
+  if (fajar === timeClock) {
     notification = new Notification("Fajar Prayer Time");
   }
   if (zuhar == timeClock) {
@@ -99,6 +92,7 @@ let userTitles = document.getElementById("userTitle"),
 // Set & Show Data
 let hideinnher = document.getElementById("hideinnher");
 let flag = false;
+let timerArr = [];
 function saveData() {
   // Validation
   if (userTitles.value.trim() === "") {
@@ -139,7 +133,11 @@ function saveData() {
         },
       });
     } else {
-      formattedTime = moment(inputTime.value, "HH:mm").format("h:mm a");
+      timerArr.push(
+        (formattedTime = moment(inputTime.value, "HH:mm:ss").format(
+          "h:mm:ss A"
+        ))
+      );
       //Set Reminder
       hideinnher.innerHTML += `
   <div class="sectionBox animate__animated animate__fadeInLeft">
@@ -168,17 +166,10 @@ function saveData() {
     }
   }
   // Matching Time & send notification
-  flag = true;
   setInterval(function () {
-    if (flag) {
-      const currentDate = new Date();
-      const currentHours = currentDate.getHours();
-      let currentMinutes = currentDate.getMinutes();
-      // Create formatted time string
-      timeClock = moment(`${currentHours}:${currentMinutes}`, "HH:mm").format(
-        "h:mm a"
-      );
-      if (formattedTime == timeClock) {
+    timeClock = moment().format("LTS");
+    timerArr.forEach((v) => {
+      if (v === timeClock) {
         if (!("Notification" in window)) {
           alert("This browser does not support desktop notification");
         } else if (Notification.permission === "granted") {
@@ -192,8 +183,7 @@ function saveData() {
             }
           });
         }
-        flag = false;
       }
-    }
+    });
   }, 1000);
 }
