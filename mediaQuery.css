@@ -50,4 +50,8 @@
   .sectionBox {
     height: auto;
   }
+  #logoutBtn {
+    margin-left: unset;
+    margin: 10px;
+  }
 }

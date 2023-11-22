@@ -13,8 +13,13 @@ window.addEventListener("load", () => {
       // displayConfirmNotification();
     }
   });
-  
 });
+// Logout
+const logoutBtn = document
+  .getElementById("logoutBtn")
+  .addEventListener("click", () => {
+    location.href = "index.html";
+  });
 // Namaz & Task Section Show Hide
 const namaz = document.querySelector(".namaz"),
   hideSection = document.querySelector(".sectionBox"),

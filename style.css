@@ -47,7 +47,7 @@
 /* Main page */
 
 .containers {
-  width: 1350px;
+  width: 1340px;
   margin: 0 auto;
   min-height: 100vh;
   overflow: hidden;
@@ -55,6 +55,24 @@
 }
 .box {
   padding: 20px 50px;
+}
+
+#logoutBtn {
+  background: var(--secondaryColor);
+  color: var(--primaryColor);
+  padding: 10px;
+  border-radius: 5px;
+  margin-left: 95%;
+  margin-bottom: 10px;
+  font-weight: 600;
+  border: 1px solid var(--secondaryColor);
+  transition: all 0.3s linear;
+}
+
+#logoutBtn:hover {
+  background-color: var(--primaryColor);
+  color: var(--secondaryColor);
+  border: 1px solid var(--secondaryColor);
 }
 
 /* Header Section */
