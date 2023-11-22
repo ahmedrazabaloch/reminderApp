@@ -182,11 +182,11 @@ function saveData() {
         if (!("Notification" in window)) {
           alert("This browser does not support desktop notification");
         } else if (Notification.permission === "granted") {
-          const notification = new Notification("Reminder! Time's up");
+          let notification = new Notification("Reminder! Time's up");
         } else if (Notification.permission !== "denied") {
           Notification.requestPermission().then((permission) => {
             if (permission === "granted") {
-              const notification = new Notification(
+              let notification = new Notification(
                 "Notification Permission Granted"
               );
             }

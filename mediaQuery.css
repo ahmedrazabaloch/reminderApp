@@ -50,8 +50,13 @@
   .sectionBox {
     height: auto;
   }
+  .navBar {
+    padding: 10px;
+  }
+  .navBar h1 {
+    font-size: 1.5em;
+  }
   #logoutBtn {
     margin-left: unset;
-    margin: 10px;
   }
 }

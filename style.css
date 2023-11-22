@@ -57,13 +57,25 @@
   padding: 20px 50px;
 }
 
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+.navBar h1{
+  color: var(--secondaryColor);
+  font-size: 2em;
+  font-weight: 600;
+  border-bottom: 10px double var(--secondaryColor);
+  user-select: none;
+}
 #logoutBtn {
   background: var(--secondaryColor);
   color: var(--primaryColor);
   padding: 10px;
   border-radius: 5px;
-  margin-left: 95%;
-  margin-bottom: 10px;
   font-weight: 600;
   border: 1px solid var(--secondaryColor);
   transition: all 0.3s linear;
