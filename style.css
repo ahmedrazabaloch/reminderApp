@@ -339,15 +339,12 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
   background-color: var(--primaryColor) !important;
 }
 
-div:where(.swal2-container).swal2-top-end > .swal2-popup,
-div:where(.swal2-container).swal2-top-right > .swal2-popup {
-  width: 13% !important;
-}
 div:where(.swal2-container) div:where(.swal2-popup) {
   font-size: 0.8rem !important;
 }
 div:where(.swal2-container) h2:where(.swal2-title) {
   padding: unset !important;
+  padding: 20px !important;
 }
 div:where(.swal2-container).swal2-center > .swal2-popup {
   padding: 20px !important;
