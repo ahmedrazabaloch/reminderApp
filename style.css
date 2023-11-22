@@ -64,7 +64,7 @@
   flex-wrap: wrap;
   margin-bottom: 15px;
 }
-.navBar h1{
+.navBar h1 {
   color: var(--secondaryColor);
   font-size: 2em;
   font-weight: 600;
@@ -278,6 +278,7 @@ p#discerption {
 }
 div#hideinnher {
   width: 100%;
+  flex-wrap: wrap;
   flex-direction: row-reverse;
 }
 /* toggle button */

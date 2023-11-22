@@ -1,5 +1,4 @@
-{
-  "background_color": "#ffffff",
+{ "background_color": "#ffffff",
   "description": "Meet Prayer Reminder : Your daily 5 prayer times at your fingertips, also you can add customise reminders to suit your schedule seamlessly, Elve",
   "dir": "ltr",
   "display": "standalone",
@@ -10,11 +9,7 @@
   "start_url": "./main.html",
   "theme_color": "#ff6565",
   "id": "ahmedraza",
-  "categories": [
-    "education",
-    "lifestyle",
-    "navigation"
-  ],
+  "categories": ["education", "lifestyle", "navigation"],
   "icons": [
     {
       "src": "windows11/SmallTile.scale-100.png",

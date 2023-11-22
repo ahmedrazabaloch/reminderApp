@@ -152,23 +152,6 @@
       </div>
     </div>
     <!-- Powered by Ahmedraza https://ahmedrazabaloch.netlify.app -->
-    <script>
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker
-          .register("serviceworker.js", {
-            scope: "https://prayer-reminder-ar.netlify.app/",
-          })
-          .then((registration) => {
-            console.log(
-              "Service Worker registered with scope:",
-              registration.scope
-            );
-          })
-          .catch((error) => {
-            console.error("Service Worker registration failed:", error);
-          });
-      }
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script src="app.js"></script>
