@@ -18,6 +18,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  background-color: var(--primaryColor) !important;
+}
 :root {
   --primaryColor: #ff6565;
   --secondaryColor: #fff;
@@ -55,6 +58,7 @@
 }
 .box {
   padding: 20px 50px;
+  height: 100%;
 }
 
 .navBar {
@@ -63,6 +67,8 @@
   align-items: center;
   flex-wrap: wrap;
   margin-bottom: 15px;
+  width: 65%;
+  margin-inline: auto;
 }
 .navBar h1 {
   color: var(--secondaryColor);
@@ -99,14 +105,15 @@ section {
   align-items: center;
   gap: 5%;
   flex-wrap: wrap;
-  width: 100%;
+  width: 65%;
+  margin: auto;
 }
 div#clock,
 div#newTask,
 div#namazR {
   color: var(--secondaryColor);
   text-align: center;
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: 600;
   width: 30%;
   user-select: none;
@@ -259,8 +266,9 @@ p#discerption {
 .namazHeading {
   display: flex;
   margin: 20px auto;
+  width: 65%;
   padding: 20px 30px;
-  font-size: 2.5em;
+  font-size: 1.5em;
   align-items: center;
   color: var(--secondaryColor);
   justify-content: space-between;
